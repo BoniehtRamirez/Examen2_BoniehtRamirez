@@ -42,5 +42,10 @@ public class Vehiculo {
     public void setVIN(long VIN) {
         this.VIN = VIN;
     }
-     
+
+    @Override
+    public String toString() {
+        return marca;
+    }
+    
 }
