@@ -1,6 +1,7 @@
 package examen2p2_boniehtramirez;
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -67,10 +68,15 @@ public class Main extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jt_baterias = new javax.swing.JTable();
         jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        cb_ensamblajeVehiculo = new javax.swing.JComboBox<>();
+        cb_ensamblajeBateria = new javax.swing.JComboBox<>();
+        jButton8 = new javax.swing.JButton();
+        jProgressBar1 = new javax.swing.JProgressBar();
 
         jLabel1.setText("Marca:");
 
@@ -348,7 +354,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Listar");
+        jButton2.setText("Listar en JList");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -430,11 +436,19 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setText("Listar");
-
         jButton9.setText("Modificar");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
 
         jButton10.setText("Eliminar");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -449,8 +463,6 @@ public class Main extends javax.swing.JFrame {
                         .addGap(23, 23, 23)
                         .addComponent(jButton7)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton8)
-                        .addGap(18, 18, 18)
                         .addComponent(jButton9)
                         .addGap(18, 18, 18)
                         .addComponent(jButton10)))
@@ -464,7 +476,6 @@ public class Main extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton7)
-                    .addComponent(jButton8)
                     .addComponent(jButton9)
                     .addComponent(jButton10))
                 .addContainerGap(71, Short.MAX_VALUE))
@@ -472,15 +483,57 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("CRUD Bateria", jPanel2);
 
+        jLabel16.setText("Seleccione Bateria:");
+
+        jLabel17.setText("Seleccione Vehiculo:");
+
+        jButton8.setText("Ensamblar");
+
+        jProgressBar1.setMaximum(10);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 690, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(127, 127, 127)
+                            .addComponent(jLabel16)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(cb_ensamblajeBateria, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jLabel17)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(cb_ensamblajeVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jButton8)
+                                    .addGap(85, 85, 85)))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 443, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_ensamblajeBateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_ensamblajeVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addGap(41, 41, 41)
+                .addComponent(jButton8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(128, 128, 128))
         );
 
         jTabbedPane1.addTab("Hilo", jPanel3);
@@ -556,7 +609,7 @@ public class Main extends javax.swing.JFrame {
         if(jt_vehiculos.getSelectedRowCount()!=0){
             vehiculos.remove(jt_vehiculos.getSelectedRow());
             actualizarModelos();
-            JOptionPane.showMessageDialog(this, "¡Vehiculo/s eliminados!");
+            JOptionPane.showMessageDialog(this, "¡Vehiculo eliminado!");
         } else {
             JOptionPane.showMessageDialog(this,"No ha seleccionado ningun vehiculo de la tabla.");
         }
@@ -568,10 +621,9 @@ public class Main extends javax.swing.JFrame {
             vehiculos.get(i).setModelo((String) jt_vehiculos.getValueAt(i, 1));
             vehiculos.get(i).setCarroceria((String) jt_vehiculos.getValueAt(i, 2));
             vehiculos.get(i).setVIN((long) jt_vehiculos.getValueAt(i, 3));
-            
-            actualizarModelos();
-            JOptionPane.showMessageDialog(this,"¡Vehiculos modificados!");
         }
+        actualizarModelos();
+        JOptionPane.showMessageDialog(this,"¡Vehiculos modificados!");
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
@@ -590,7 +642,7 @@ public class Main extends javax.swing.JFrame {
         actualizarModelos();
         jd_crearBateria.setVisible(false);
         
-        JOptionPane.showMessageDialog(jd_crearBateria, "¡Bateria creada exitosamente!");
+        JOptionPane.showMessageDialog(jd_crearBateria, "¡Batería creada exitosamente!");
         
         tf_marcaBateria.setText("");
         cb_vehiculo.setSelectedIndex(0);
@@ -607,6 +659,29 @@ public class Main extends javax.swing.JFrame {
         jd_crearBateria.setLocationRelativeTo(this);
         jd_crearBateria.setVisible(true);
     }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        if(jt_baterias.getSelectedRowCount()!=0){
+            baterias.remove(jt_baterias.getSelectedRow());
+            actualizarModelos();
+            JOptionPane.showMessageDialog(this, "¡Batería eliminada!");
+        } else {
+            JOptionPane.showMessageDialog(this,"No ha seleccionado ninguna batería de la tabla.");
+        }
+    }//GEN-LAST:event_jButton10MouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        for (int i = 0; i < jt_baterias.getRowCount(); i++) {
+            baterias.get(i).setMarca((String) jt_baterias.getValueAt(i, 0));
+            baterias.get(i).setCapacidad((int) jt_baterias.getValueAt(i, 1));
+            baterias.get(i).setAutonomia((int) jt_baterias.getValueAt(i, 2));
+            baterias.get(i).setModulos((int) jt_baterias.getValueAt(i, 3));
+            baterias.get(i).setTipoVehiculo((String) jt_baterias.getValueAt(i, 4));
+            baterias.get(i).setTiempoEnsamblaje((int) jt_baterias.getValueAt(i, 5));
+        }
+        actualizarModelos();
+        JOptionPane.showMessageDialog(this,"¡Baterías modificadas!");
+    }//GEN-LAST:event_jButton9MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -642,6 +717,8 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cb_carroceria;
+    private javax.swing.JComboBox<String> cb_ensamblajeBateria;
+    private javax.swing.JComboBox<String> cb_ensamblajeVehiculo;
     private javax.swing.JComboBox<String> cb_tipo;
     private javax.swing.JComboBox<String> cb_vehiculo;
     private javax.swing.JButton jButton1;
@@ -662,6 +739,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -673,6 +752,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -725,5 +805,19 @@ public class Main extends javax.swing.JFrame {
         for (int i = 0; i < baterias.size(); i++)
             tableModel.addRow(new Object[] {baterias.get(i).getMarca(),baterias.get(i).getCapacidad(),baterias.get(i).getAutonomia(),baterias.get(i).getModulos(),baterias.get(i).getTipoVehiculo(),baterias.get(i).getTiempoEnsamblaje()});
         jt_baterias.setModel(tableModel);
+        
+        //JComboBox
+        DefaultComboBoxModel comboModel = (DefaultComboBoxModel) cb_ensamblajeBateria.getModel();
+        comboModel.removeAllElements();
+        for (int i = 0; i < baterias.size(); i++)
+            comboModel.addElement(baterias.get(i));
+        cb_ensamblajeBateria.setModel(comboModel);
+        
+        comboModel = (DefaultComboBoxModel) cb_ensamblajeVehiculo.getModel();
+        comboModel.removeAllElements();
+        for (int i = 0; i < vehiculos.size(); i++)
+            comboModel.addElement(vehiculos.get(i));
+        cb_ensamblajeVehiculo.setModel(comboModel);
+        
     }
 }

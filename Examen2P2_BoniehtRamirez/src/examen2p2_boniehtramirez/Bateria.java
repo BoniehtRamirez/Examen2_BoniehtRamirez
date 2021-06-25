@@ -69,5 +69,11 @@ public class Bateria {
     public void setTiempoEnsamblaje(int tiempoEnsamblaje) {
         this.tiempoEnsamblaje = tiempoEnsamblaje;
     }
+
+    @Override
+    public String toString() {
+        return marca;
+    }
+    
     
 }
