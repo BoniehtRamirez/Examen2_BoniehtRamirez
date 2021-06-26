@@ -76,7 +76,7 @@ public class Main extends javax.swing.JFrame {
         cb_ensamblajeVehiculo = new javax.swing.JComboBox<>();
         cb_ensamblajeBateria = new javax.swing.JComboBox<>();
         jButton8 = new javax.swing.JButton();
-        jProgressBar1 = new javax.swing.JProgressBar();
+        pb_barra = new javax.swing.JProgressBar();
 
         jLabel1.setText("Marca:");
 
@@ -251,7 +251,7 @@ public class Main extends javax.swing.JFrame {
 
         sp_autonomia.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
-        sp_ensamblaje.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        sp_ensamblaje.setModel(new javax.swing.SpinnerNumberModel(5, 5, null, 1));
 
         sp_modulos.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
@@ -488,8 +488,13 @@ public class Main extends javax.swing.JFrame {
         jLabel17.setText("Seleccione Vehiculo:");
 
         jButton8.setText("Ensamblar");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
 
-        jProgressBar1.setMaximum(10);
+        pb_barra.setMaximum(10);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -515,7 +520,7 @@ public class Main extends javax.swing.JFrame {
                                     .addGap(85, 85, 85)))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(57, 57, 57)
-                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(pb_barra, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -532,8 +537,8 @@ public class Main extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addComponent(jButton8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(128, 128, 128))
+                .addComponent(pb_barra, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(144, 144, 144))
         );
 
         jTabbedPane1.addTab("Hilo", jPanel3);
@@ -650,7 +655,7 @@ public class Main extends javax.swing.JFrame {
         sp_autonomia.setValue(0);
         sp_modulos.setValue(0);
         sp_carga.setValue(0);
-        sp_ensamblaje.setValue(0);
+        sp_ensamblaje.setValue(5);
     }//GEN-LAST:event_jButton11MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
@@ -682,6 +687,11 @@ public class Main extends javax.swing.JFrame {
         actualizarModelos();
         JOptionPane.showMessageDialog(this,"¡Baterías modificadas!");
     }//GEN-LAST:event_jButton9MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        ensamblaje = new Hilo(pb_barra,(Vehiculo)cb_ensamblajeVehiculo.getSelectedItem(),(Bateria)cb_ensamblajeBateria.getSelectedItem());
+        ensamblaje.start();
+    }//GEN-LAST:event_jButton8MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -752,7 +762,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -764,6 +773,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JList<String> jl_vehiculos;
     private javax.swing.JTable jt_baterias;
     private javax.swing.JTable jt_vehiculos;
+    private javax.swing.JProgressBar pb_barra;
     private javax.swing.JSpinner sp_autonomia;
     private javax.swing.JSpinner sp_capacidad;
     private javax.swing.JSpinner sp_carga;
@@ -779,6 +789,7 @@ public class Main extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     ArrayList<Vehiculo> vehiculos = new ArrayList();
     ArrayList<Bateria> baterias = new ArrayList();
+    Hilo ensamblaje;
     
     public void actualizarModelos(){
         //JTable

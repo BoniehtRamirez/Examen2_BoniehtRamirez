@@ -1,6 +1,8 @@
 package examen2p2_boniehtramirez;
 
-public class Bateria {
+import java.io.Serializable;
+
+public class Bateria implements Serializable {
     String marca, tipoVehiculo;
     int capacidad, autonomia, modulos, carga, tiempoEnsamblaje;
 

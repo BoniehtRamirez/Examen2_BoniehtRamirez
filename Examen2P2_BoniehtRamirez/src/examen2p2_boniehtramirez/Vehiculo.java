@@ -1,6 +1,8 @@
 package examen2p2_boniehtramirez;
 
-public class Vehiculo {
+import java.io.Serializable;
+
+public class Vehiculo implements Serializable{
     private String marca, modelo, carroceria;
     private long VIN;
 
