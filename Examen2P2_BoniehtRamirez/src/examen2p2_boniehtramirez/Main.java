@@ -1,6 +1,12 @@
 package examen2p2_boniehtramirez;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -56,6 +62,14 @@ public class Main extends javax.swing.JFrame {
         sp_modulos = new javax.swing.JSpinner();
         sp_carga = new javax.swing.JSpinner();
         jButton11 = new javax.swing.JButton();
+        jd_crearHibrido = new javax.swing.JDialog();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        sp_kilometros = new javax.swing.JSpinner();
+        sp_precio = new javax.swing.JSpinner();
+        sp_pasajeros = new javax.swing.JSpinner();
+        jButton12 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -64,12 +78,14 @@ public class Main extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jt_baterias = new javax.swing.JTable();
         jButton7 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -327,6 +343,66 @@ public class Main extends javax.swing.JFrame {
                 .addGap(22, 22, 22))
         );
 
+        jLabel18.setText("Kilometros:");
+
+        jLabel19.setText("Pasajeros:");
+
+        jLabel20.setText("Precio:");
+
+        sp_kilometros.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        sp_precio.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 1.0d));
+
+        sp_pasajeros.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        jButton12.setText("Crear");
+        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton12MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_crearHibridoLayout = new javax.swing.GroupLayout(jd_crearHibrido.getContentPane());
+        jd_crearHibrido.getContentPane().setLayout(jd_crearHibridoLayout);
+        jd_crearHibridoLayout.setHorizontalGroup(
+            jd_crearHibridoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearHibridoLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(jd_crearHibridoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_crearHibridoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sp_kilometros, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sp_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sp_pasajeros, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(55, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_crearHibridoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton12)
+                .addGap(99, 99, 99))
+        );
+        jd_crearHibridoLayout.setVerticalGroup(
+            jd_crearHibridoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearHibridoLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jd_crearHibridoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(sp_kilometros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_crearHibridoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(sp_pasajeros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_crearHibridoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(sp_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton12)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jt_vehiculos.setModel(new javax.swing.table.DefaultTableModel(
@@ -375,6 +451,13 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jButton13.setText("Crear Archivo Binario");
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton13MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -389,7 +472,9 @@ public class Main extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton3)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4))
+                        .addComponent(jButton4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton13))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -405,7 +490,8 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(jButton4)
+                    .addComponent(jButton13))
                 .addContainerGap(81, Short.MAX_VALUE))
         );
 
@@ -450,6 +536,13 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jButton14.setText("Crear Archivo Binario");
+        jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton14MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -465,7 +558,9 @@ public class Main extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton9)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton10)))
+                        .addComponent(jButton10)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton14)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -477,7 +572,8 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton7)
                     .addComponent(jButton9)
-                    .addComponent(jButton10))
+                    .addComponent(jButton10)
+                    .addComponent(jButton14))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
@@ -563,6 +659,11 @@ public class Main extends javax.swing.JFrame {
             jd_crearCombustion.setModal(true);
             jd_crearCombustion.setLocationRelativeTo(jd_crearVehiculo);
             jd_crearCombustion.setVisible(true);
+        } else if(cb_tipo.getSelectedIndex()==1){
+            jd_crearHibrido.pack();
+            jd_crearHibrido.setModal(true);
+            jd_crearHibrido.setLocationRelativeTo(jd_crearVehiculo);
+            jd_crearHibrido.setVisible(true);
         }
     }//GEN-LAST:event_jButton5MouseClicked
 
@@ -689,9 +790,105 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-        ensamblaje = new Hilo(pb_barra,(Vehiculo)cb_ensamblajeVehiculo.getSelectedItem(),(Bateria)cb_ensamblajeBateria.getSelectedItem());
-        ensamblaje.start();
+        if(vehiculos.size()!=0 || baterias.size()!= 0){
+            ensamblaje = new Hilo(pb_barra,(Vehiculo)cb_ensamblajeVehiculo.getSelectedItem(),(Bateria)cb_ensamblajeBateria.getSelectedItem());
+            ensamblaje.start();
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay material suficiente para ensamblar...");
+        }
+        
     }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
+        String marca, modelo, carroceria;
+        long VIN;
+        int kilometros, pasajeros;
+        double precio;
+        
+        marca = tf_marca.getText();
+        modelo = tf_modelo.getText();
+        carroceria = (String) cb_carroceria.getSelectedItem();
+        VIN = (long) sp_vin.getValue();
+        kilometros = (int) sp_kilometros.getValue();
+        pasajeros = (int) sp_pasajeros.getValue();
+        precio = (double) sp_precio.getValue();
+        
+        vehiculos.add(new Hibrido(kilometros,pasajeros,precio,marca,modelo,carroceria,VIN));
+        actualizarModelos();
+        
+        jd_crearHibrido.setVisible(false);
+        jd_crearVehiculo.setVisible(false);
+        JOptionPane.showMessageDialog(jd_crearHibrido, "¡Vehiculo creado exitosamente!");
+       
+        
+        tf_marca.setText("");
+        tf_modelo.setText("");
+        cb_carroceria.setSelectedIndex(0);
+        sp_vin.setValue((long)0);
+        sp_kilometros.setValue(0);
+        sp_pasajeros.setValue(0);
+        sp_precio.setValue((double)0);
+    }//GEN-LAST:event_jButton12MouseClicked
+
+    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
+        ObjectOutputStream bs = null;
+        FileOutputStream fs = null;
+        try {
+            File file = new File("./Vehiculos.bin");
+            fs = new FileOutputStream(file);
+            bs = new ObjectOutputStream(fs);
+            
+            for (Vehiculo vehiculo : vehiculos) {
+                bs.writeObject(vehiculo);
+                bs.flush();
+                fs.flush();
+            }
+            
+            bs.close();
+            fs.close();
+            
+            JOptionPane.showMessageDialog(this, "¡Archivo creado exitosamente!");
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                bs.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        
+    }//GEN-LAST:event_jButton13MouseClicked
+
+    private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
+        ObjectOutputStream bs = null;
+        FileOutputStream fs = null;
+        try {
+            File file = new File("./Vehiculos.bin");
+            fs = new FileOutputStream(file);
+            bs = new ObjectOutputStream(fs);
+            
+            for (Bateria bateria : baterias) {
+                bs.writeObject(bateria);
+                bs.flush();
+                fs.flush();
+            }
+            
+            bs.close();
+            fs.close();
+            
+            JOptionPane.showMessageDialog(this, "¡Archivo creado exitosamente!");
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                bs.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButton14MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -734,6 +931,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -751,7 +951,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -768,6 +971,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JDialog jd_crearBateria;
     private javax.swing.JDialog jd_crearCombustion;
+    private javax.swing.JDialog jd_crearHibrido;
     private javax.swing.JDialog jd_crearVehiculo;
     private javax.swing.JDialog jd_listarVehiculos;
     private javax.swing.JList<String> jl_vehiculos;
@@ -781,7 +985,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JSpinner sp_cilindros;
     private javax.swing.JSpinner sp_consumo;
     private javax.swing.JSpinner sp_ensamblaje;
+    private javax.swing.JSpinner sp_kilometros;
     private javax.swing.JSpinner sp_modulos;
+    private javax.swing.JSpinner sp_pasajeros;
+    private javax.swing.JSpinner sp_precio;
     private javax.swing.JSpinner sp_vin;
     private javax.swing.JTextField tf_marca;
     private javax.swing.JTextField tf_marcaBateria;
