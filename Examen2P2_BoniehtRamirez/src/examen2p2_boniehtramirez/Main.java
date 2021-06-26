@@ -70,6 +70,20 @@ public class Main extends javax.swing.JFrame {
         sp_precio = new javax.swing.JSpinner();
         sp_pasajeros = new javax.swing.JSpinner();
         jButton12 = new javax.swing.JButton();
+        jd_crearEnchufable = new javax.swing.JDialog();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jButton15 = new javax.swing.JButton();
+        sp_maletero = new javax.swing.JSpinner();
+        sp_gasolina = new javax.swing.JSpinner();
+        jd_crearElectrico = new javax.swing.JDialog();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        sp_coeficiente = new javax.swing.JSpinner();
+        sp_precio1 = new javax.swing.JSpinner();
+        sp_motores = new javax.swing.JSpinner();
+        jButton16 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -403,6 +417,116 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
+        jLabel21.setText("Capacidad Maletero:");
+
+        jLabel22.setText("Galones Gasolina:");
+
+        jButton15.setText("Crear");
+        jButton15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton15MouseClicked(evt);
+            }
+        });
+
+        sp_maletero.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        sp_gasolina.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        javax.swing.GroupLayout jd_crearEnchufableLayout = new javax.swing.GroupLayout(jd_crearEnchufable.getContentPane());
+        jd_crearEnchufable.getContentPane().setLayout(jd_crearEnchufableLayout);
+        jd_crearEnchufableLayout.setHorizontalGroup(
+            jd_crearEnchufableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearEnchufableLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jd_crearEnchufableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_crearEnchufableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sp_maletero, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sp_gasolina, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(52, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_crearEnchufableLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton15)
+                .addGap(91, 91, 91))
+        );
+        jd_crearEnchufableLayout.setVerticalGroup(
+            jd_crearEnchufableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearEnchufableLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jd_crearEnchufableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(sp_maletero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_crearEnchufableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(sp_gasolina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton15)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel23.setText("Coeficiente:");
+
+        jLabel24.setText("Motores:");
+
+        jLabel25.setText("Precio:");
+
+        sp_coeficiente.setModel(new javax.swing.SpinnerNumberModel());
+
+        sp_precio1.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 1.0d));
+
+        sp_motores.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+
+        jButton16.setText("Crear");
+        jButton16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton16MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_crearElectricoLayout = new javax.swing.GroupLayout(jd_crearElectrico.getContentPane());
+        jd_crearElectrico.getContentPane().setLayout(jd_crearElectricoLayout);
+        jd_crearElectricoLayout.setHorizontalGroup(
+            jd_crearElectricoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearElectricoLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(jd_crearElectricoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel24)
+                    .addComponent(jLabel23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_crearElectricoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sp_coeficiente, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sp_precio1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sp_motores, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(53, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_crearElectricoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton16)
+                .addGap(99, 99, 99))
+        );
+        jd_crearElectricoLayout.setVerticalGroup(
+            jd_crearElectricoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearElectricoLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jd_crearElectricoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(sp_coeficiente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_crearElectricoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(sp_motores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_crearElectricoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(sp_precio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton16)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jt_vehiculos.setModel(new javax.swing.table.DefaultTableModel(
@@ -664,6 +788,16 @@ public class Main extends javax.swing.JFrame {
             jd_crearHibrido.setModal(true);
             jd_crearHibrido.setLocationRelativeTo(jd_crearVehiculo);
             jd_crearHibrido.setVisible(true);
+        } else if(cb_tipo.getSelectedIndex()==2){
+            jd_crearEnchufable.pack();
+            jd_crearEnchufable.setModal(true);
+            jd_crearEnchufable.setLocationRelativeTo(jd_crearVehiculo);
+            jd_crearEnchufable.setVisible(true);
+        } else {
+            jd_crearElectrico.pack();
+            jd_crearElectrico.setModal(true);
+            jd_crearElectrico.setLocationRelativeTo(jd_crearVehiculo);
+            jd_crearElectrico.setVisible(true);
         }
     }//GEN-LAST:event_jButton5MouseClicked
 
@@ -695,6 +829,8 @@ public class Main extends javax.swing.JFrame {
         sp_cilindrada.setValue(0);
         sp_cilindros.setValue(3);
         sp_consumo.setValue(0);
+        
+        cb_tipo.setSelectedIndex(0);
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -828,67 +964,140 @@ public class Main extends javax.swing.JFrame {
         sp_kilometros.setValue(0);
         sp_pasajeros.setValue(0);
         sp_precio.setValue((double)0);
+        
+        cb_tipo.setSelectedIndex(0);
     }//GEN-LAST:event_jButton12MouseClicked
 
     private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
-        ObjectOutputStream bs = null;
-        FileOutputStream fs = null;
-        try {
-            File file = new File("./Vehiculos.bin");
-            fs = new FileOutputStream(file);
-            bs = new ObjectOutputStream(fs);
-            
-            for (Vehiculo vehiculo : vehiculos) {
-                bs.writeObject(vehiculo);
-                bs.flush();
-                fs.flush();
-            }
-            
-            bs.close();
-            fs.close();
-            
-            JOptionPane.showMessageDialog(this, "¡Archivo creado exitosamente!");
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
+        if(vehiculos.size()==0){
+            JOptionPane.showMessageDialog(this, "No hay vehiculos creados...");
+        } else {
+            ObjectOutputStream bs = null;
+            FileOutputStream fs = null;
             try {
+                File file = new File("./Vehiculos.bin");
+                fs = new FileOutputStream(file);
+                bs = new ObjectOutputStream(fs);
+
+                for (Vehiculo vehiculo : vehiculos) {
+                    bs.writeObject(vehiculo);
+                    bs.flush();
+                    fs.flush();
+                }
+
                 bs.close();
+                fs.close();
+
+                JOptionPane.showMessageDialog(this, "¡Archivo creado exitosamente!");
             } catch (IOException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    bs.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
-        
         
     }//GEN-LAST:event_jButton13MouseClicked
 
     private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
-        ObjectOutputStream bs = null;
-        FileOutputStream fs = null;
-        try {
-            File file = new File("./Vehiculos.bin");
-            fs = new FileOutputStream(file);
-            bs = new ObjectOutputStream(fs);
-            
-            for (Bateria bateria : baterias) {
-                bs.writeObject(bateria);
-                bs.flush();
-                fs.flush();
-            }
-            
-            bs.close();
-            fs.close();
-            
-            JOptionPane.showMessageDialog(this, "¡Archivo creado exitosamente!");
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
+        if(baterias.size()==0){
+            JOptionPane.showMessageDialog(this, "No hay baterías creadas...");
+        } else {
+            ObjectOutputStream bs = null;
+            FileOutputStream fs = null;
             try {
+                File file = new File("./Vehiculos.bin");
+                fs = new FileOutputStream(file);
+                bs = new ObjectOutputStream(fs);
+
+                for (Bateria bateria : baterias) {
+                    bs.writeObject(bateria);
+                    bs.flush();
+                    fs.flush();
+                }
+
                 bs.close();
+                fs.close();
+
+                JOptionPane.showMessageDialog(this, "¡Archivo creado exitosamente!");
             } catch (IOException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    bs.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
+              
     }//GEN-LAST:event_jButton14MouseClicked
+
+    private void jButton15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseClicked
+        String marca, modelo, carroceria;
+        long VIN;
+        int capacidadMaletero, galonesCombustible;
+        
+        marca = tf_marca.getText();
+        modelo = tf_modelo.getText();
+        carroceria = (String) cb_carroceria.getSelectedItem();
+        VIN = (long) sp_vin.getValue();
+        capacidadMaletero = (int) sp_capacidad.getValue();
+        galonesCombustible = (int) sp_gasolina.getValue();
+        
+        vehiculos.add(new HibridoEnchufable(capacidadMaletero,galonesCombustible,marca,modelo,carroceria,VIN));
+        actualizarModelos();
+        
+        jd_crearEnchufable.setVisible(false);
+        jd_crearVehiculo.setVisible(false);
+        JOptionPane.showMessageDialog(jd_crearEnchufable, "¡Vehiculo creado exitosamente!");
+       
+        
+        tf_marca.setText("");
+        tf_modelo.setText("");
+        cb_carroceria.setSelectedIndex(0);
+        sp_vin.setValue((long)0);
+        sp_maletero.setValue(0);
+        sp_gasolina.setValue(0);
+        
+        cb_tipo.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton15MouseClicked
+
+    private void jButton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseClicked
+        String marca, modelo, carroceria;
+        long VIN;
+        int coeficiente, motores;
+        double precio;
+        
+        marca = tf_marca.getText();
+        modelo = tf_modelo.getText();
+        carroceria = (String) cb_carroceria.getSelectedItem();
+        VIN = (long) sp_vin.getValue();
+        coeficiente = (int) sp_coeficiente.getValue();
+        motores = (int) sp_motores.getValue();
+        precio = (double) sp_precio1.getValue();
+        
+        vehiculos.add(new Electrico(coeficiente,motores,precio,marca,modelo,carroceria,VIN));
+        actualizarModelos();
+        
+        jd_crearElectrico.setVisible(false);
+        jd_crearVehiculo.setVisible(false);
+        JOptionPane.showMessageDialog(jd_crearElectrico, "¡Vehiculo creado exitosamente!");
+       
+        
+        tf_marca.setText("");
+        tf_modelo.setText("");
+        cb_carroceria.setSelectedIndex(0);
+        sp_vin.setValue((long)0);
+        sp_coeficiente.setValue(0);
+        sp_motores.setValue(1);
+        sp_precio.setValue((double)0);
+        
+        cb_tipo.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton16MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -934,6 +1143,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -955,6 +1166,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -971,6 +1187,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JDialog jd_crearBateria;
     private javax.swing.JDialog jd_crearCombustion;
+    private javax.swing.JDialog jd_crearElectrico;
+    private javax.swing.JDialog jd_crearEnchufable;
     private javax.swing.JDialog jd_crearHibrido;
     private javax.swing.JDialog jd_crearVehiculo;
     private javax.swing.JDialog jd_listarVehiculos;
@@ -983,12 +1201,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JSpinner sp_carga;
     private javax.swing.JSpinner sp_cilindrada;
     private javax.swing.JSpinner sp_cilindros;
+    private javax.swing.JSpinner sp_coeficiente;
     private javax.swing.JSpinner sp_consumo;
     private javax.swing.JSpinner sp_ensamblaje;
+    private javax.swing.JSpinner sp_gasolina;
     private javax.swing.JSpinner sp_kilometros;
+    private javax.swing.JSpinner sp_maletero;
     private javax.swing.JSpinner sp_modulos;
+    private javax.swing.JSpinner sp_motores;
     private javax.swing.JSpinner sp_pasajeros;
     private javax.swing.JSpinner sp_precio;
+    private javax.swing.JSpinner sp_precio1;
     private javax.swing.JSpinner sp_vin;
     private javax.swing.JTextField tf_marca;
     private javax.swing.JTextField tf_marcaBateria;
